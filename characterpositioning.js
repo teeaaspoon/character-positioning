@@ -1,6 +1,6 @@
 function countLetters(string) {
     //unsure about question. if it is talking about the string index with spaces included use originalString, otherwise use string
-    var originalString = string;
+    var originalString = string.split("");
     //create an empty object
     var countLettersObject = {};
     //strip the spaces in in the string
@@ -20,8 +20,10 @@ function countLetters(string) {
         countLettersObject[uniqueString[i]] = [];
     }
     //find the index of each letter and add it to an array
-    for (var i = 0; i < string.length; i++) {
-        countLettersObject[string[i]].push(i);
+    for (var i = 0; i < originalString.length; i++) {
+        if (originalString[i] != " ") {
+            countLettersObject[originalString[i]].push(i);
+        }
     }
 
     return countLettersObject;
